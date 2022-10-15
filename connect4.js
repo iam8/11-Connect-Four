@@ -1,3 +1,7 @@
+// Ioana Alex Mititean
+// 10/15/22
+// Unit 11 - Connect Four Project
+
 /** Connect Four
  *
  * Player 1 and 2 alternate turns. On each turn, a piece is dropped down a
