@@ -1,0 +1,6 @@
+Parts of a plan - the game mechanics code
+
+1) HTML for the board itself: 
+2) Representing a piece that was played in the HTML board:
+3) JS structure for the in-memory game board:
+4) The overall flow of the game:
