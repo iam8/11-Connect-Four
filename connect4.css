@@ -2,31 +2,36 @@
 /* 10/15/22 */
 /* Unit 11 - Connect Four Project */
 
-/* game board table */
-
+/* Game board table. */
 #board td {
-  width: 50px;
-  height: 50px;
-  border: solid 1px #666;
+    width: 50px;
+    height: 50px;
+    border: solid 1px #666;
 }
 
-/* pieces are div within game table cells: draw as colored circles */
-
+/* The pieces are divs within the game table cells, drawn as colored circles. */
 .piece {
-  /* TODO: make into circles */
-  margin: 5px;
-  width: 80%;
-  height: 80%;
+    margin: 5px;
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
 }
 
-/* TODO: make pieces red/blue,  depending on player 1/2 piece */
+/* The player pieces are either red or blue, depending on player number. */
+.p1 {
+    background-color: blue;
+}
 
-/* column-top is table row of clickable areas for each column */
+.p2 {
+    background-color: red;
+}
 
+/* The column-top designates the table row of clickable areas at the top of each column. */
 #column-top td {
   border: dashed 1px lightgray;
 }
 
+/* Change the color of the column top that is hovered over */
 #column-top td:hover {
   background-color: gold;
 }
