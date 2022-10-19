@@ -4,26 +4,18 @@
 
 /** Connect Four
  *
- * Player 1 and 2 alternate turns. On each turn, a piece is dropped down a
- * column until a player gets four-in-a-row (horiz, vert, or diag) or until
- * board fills (tie)
+ * Player 1 and 2 alternate turns. On each turn, a piece is dropped down a column until a player
+ * gets four-in-a-row (horizontally, vertically, or diagonally) or until the board fills (tie).
  */
 
 const WIDTH = 7;
 const HEIGHT = 6;
 
-let currPlayer = 1; // active player: 1 or 2
-const board = []; // array of rows, each row is array of cells  (board[y][x])
+let currPlayer = 1; // Denotes the active player: 1 or 2
+const board = []; // An array of rows, where each row is array of cells (board[y][x])
 
-/** makeBoard: create in-JS board structure:
- *    board = array of rows, each row is array of cells  (board[y][x])
- */
-
+/** makeBoard: create the in-JS board structure. */
 function makeBoard() {
-
-    // TODO: set "board" to empty HEIGHT x WIDTH matrix array
-
-    // const outerArr = []; // Will hold the subarrays (board rows)
 
     for (let i = 0; i < HEIGHT; i++) {
 
@@ -36,10 +28,9 @@ function makeBoard() {
         // Add the row to the game board
         board.push(initRow);
     }
-
 }
 
-/** makeHtmlBoard: make HTML table and row of column tops. */
+/** makeHtmlBoard: make the HTML table and the row of column tops. */
 function makeHtmlBoard() {
 
     // Get the HTML board (a table with an ID of 'board')
