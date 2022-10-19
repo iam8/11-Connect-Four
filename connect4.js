@@ -24,9 +24,9 @@ function makeBoard() {
 }
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
-
 function makeHtmlBoard() {
   // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"
+  const htmlBoard = document.querySelector("#board");
 
   // TODO: add comment for this code
   const top = document.createElement("tr");
