@@ -11,6 +11,7 @@ Parts of a plan - the game mechanics code
 3) JS structure for the in-memory game board
 	> An array of subarrays
 	> Initially hard-coded, but could be more flexible (let user enter a size)
+
 4) The overall flow of the game
 	> Start game
 	> Player 1: place a blue piece into the clicked column (the first unoccupied slot from the bottom)
