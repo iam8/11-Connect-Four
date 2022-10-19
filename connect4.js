@@ -20,7 +20,23 @@ const board = []; // array of rows, each row is array of cells  (board[y][x])
  */
 
 function makeBoard() {
-  // TODO: set "board" to empty HEIGHT x WIDTH matrix array
+
+    // TODO: set "board" to empty HEIGHT x WIDTH matrix array
+
+    // const outerArr = []; // Will hold the subarrays (board rows)
+
+    for (let i = 0; i < HEIGHT; i++) {
+
+        // Construct a subarray (which represents a board row) and fill it with 'null' values
+        const initRow = [];
+        for (let j = 0; j < WIDTH; j++) {
+            initRow.push(null);
+        }
+
+        // Add the row to the game board
+        board.push(initRow);
+    }
+
 }
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
