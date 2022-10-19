@@ -68,26 +68,29 @@ function makeHtmlBoard() {
 }
 
 /** findSpotForCol: given column x, return top empty y (null if filled) */
-
 function findSpotForCol(x) {
     // TODO: write the real version of this, rather than always returning 0
     return 0;
 }
 
-/** placeInTable: update DOM to place piece into HTML table of board */
-
+/** placeInTable: update the DOM to place a piece into the HTML table of board. */
 function placeInTable(y, x) {
-    // TODO: make a div and insert into correct table cell
+
+    // Create a new div that represents the piece that was just played
+    const playedPiece = document.createElement("div");
+    playedPiece.classList.add("piece", `p${currPlayer}`);
+
+    // Retrieve the correct td element and place this new div inside it
+    const targetTd = document.getElementById(`${y}-${x}`);
+    targetTd.append(playedPiece);
 }
 
 /** endGame: announce game end */
-
 function endGame(msg) {
     // TODO: pop up alert message
 }
 
 /** handleClick: handle click of column top to play piece */
-
 function handleClick(evt) {
     // get x from ID of clicked cell
     const x = +evt.target.id;
@@ -115,7 +118,6 @@ function handleClick(evt) {
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
-
 function checkForWin() {
     function _win(cells) {
         // Check four cells to see if they're all color of current player
@@ -133,7 +135,6 @@ function checkForWin() {
   }
 
   // TODO: read and understand this code. Add comments to help you.
-
     for (let y = 0; y < HEIGHT; y++) {
         for (let x = 0; x < WIDTH; x++) {
             const horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
