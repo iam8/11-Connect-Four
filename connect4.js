@@ -36,26 +36,33 @@ function makeHtmlBoard() {
     // Get the HTML board (a table with an ID of 'board')
     const htmlBoard = document.querySelector("#board");
 
-    // TODO: add comment for this code
+    // Create a clickable table row for the top of the game board and add a click handler
     const top = document.createElement("tr");
     top.setAttribute("id", "column-top");
     top.addEventListener("click", handleClick);
 
+    // Create data table cells for the top table row and assign an ID to each that corresponds to the cell's column number
     for (let x = 0; x < WIDTH; x++) {
         const headCell = document.createElement("td");
         headCell.setAttribute("id", x);
         top.append(headCell);
     }
+
+    // Add the top table row to the board
     htmlBoard.append(top);
 
-    // TODO: add comment for this code
+    // Create and append table row elements to the game board
     for (let y = 0; y < HEIGHT; y++) {
         const row = document.createElement("tr");
+
+        // Create data table cells for this row and set an ID for each
         for (let x = 0; x < WIDTH; x++) {
             const cell = document.createElement("td");
             cell.setAttribute("id", `${y}-${x}`);
             row.append(cell);
         }
+
+        // Add this row to the board
         htmlBoard.append(row);
     }
 }
