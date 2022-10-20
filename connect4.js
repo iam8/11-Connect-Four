@@ -130,11 +130,20 @@ function handleClick(evt) {
         return endGame(`Player ${currPlayer} won!`);
     }
 
-    // Check for a tie
-    // TODO: check if all cells in board are filled; if so call, call endGame
+    // Check if the entire board is filled with no wins (tie)
+    const isBoardFilled = board.every((rowArr) => {
+        return rowArr.every((rowElement) => {
+            return rowElement !== null;
+        })
+    })
 
-    // Switch players
-    // TODO: switch currPlayer 1 <-> 2
+    // If the entire board is filled, call endGame
+    if (isBoardFilled) {
+        return endGame("The game ended in a tie!")
+    }
+
+    // Switch players (1 <=> 2)
+    currPlayer === 1 ? currPlayer = 2 : currPlayer = 1;
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
