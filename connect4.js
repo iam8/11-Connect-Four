@@ -102,9 +102,10 @@ function placeInTable(y, x) {
     console.log("Piece class:", playedPiece.classList);
 }
 
-/** endGame: announce game end */
+/** endGame: announce the end of the game with an alert popup. */
 function endGame(msg) {
-    // TODO: pop up alert message
+
+    alert(msg);
 }
 
 /** handleClick: handle clicks on the topmost table row (used for playing a piece) */
