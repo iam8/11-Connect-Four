@@ -95,11 +95,7 @@ function placeInTable(y, x) {
 
     // Retrieve the correct td element and place this new div inside it
     const targetTd = document.getElementById(`${y}-${x}`);
-    console.log("Coordinates of targetTd:", y, x);
     targetTd.append(playedPiece);
-
-    console.log("Piece placed at ", y, x);
-    console.log("Piece class:", playedPiece.classList);
 }
 
 /** endGame: announce the end of the game with an alert popup. */
