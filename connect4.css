@@ -37,6 +37,7 @@ h1 {
 
 /* Individual game board cells. */
 #board td {
+    background-color: beige;
     width: 60px;
     height: 60px;
     border: solid 1px #666;
@@ -44,7 +45,7 @@ h1 {
 
 /* The column-top designates the table row of clickable areas at the top of each column. */
 #column-top td {
-  border: dashed 1px lightgray;
+  border: dashed 1px gray;
 }
 
 /* Change the color of the column top that is hovered over. */
