@@ -28,8 +28,6 @@ be more or less efficient, or more or less readable, etc.
 TODO: Put in some more CSS styling and features all over.
 	> Try gradients for background, pieces, and board tiles
 	> Style the 'Connect Four' header - fonts, color, centering
-	> Center the game board in the webpage
-	> Center (horizontally) the circle pieces in the cells
 	> Put a down arrow icon at the top row of the board (on hover - replace the gold color change)
 		- The arrow should be the color of the current player
 		- Alternatively, change the color of the hovered column top to match the current player color
