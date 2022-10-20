@@ -25,8 +25,6 @@ NOTE: The above plan I wrote (before I read the starter code for the project) en
 what the starter code suggested. However, I think my way would still work - I can't tell for sure if it would
 be more or less efficient, or more or less readable, etc.
 
-TODO: add comments to the rest of the code, where needed
-
 TODO: Add JS code to ensure that after the game ends (and a winner is declared), the user can't keep interacting
 with the game.
 	> Maybe removing the event listeners? Though there are multiple...
