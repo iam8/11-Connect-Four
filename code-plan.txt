@@ -25,8 +25,6 @@ NOTE: The above plan I wrote (before I read the starter code for the project) en
 what the starter code suggested. However, I think my way would still work - I can't tell for sure if it would
 be more or less efficient, or more or less readable, etc.
 
-TODO: add instructions in HTML to the game page (for how to play)
-
 TODO: Put in some more CSS styling and features all over.
 	> Try gradients for background, pieces, and board tiles
 	> Style the 'Connect Four' header - fonts, color, centering
@@ -34,6 +32,8 @@ TODO: Put in some more CSS styling and features all over.
 	> Possibly make game board larger
 	> Put a down arrow icon at the top row of the board (on hover - replace the gold color change)
 		- The arrow should be the color of the current player
+		- Alternatively, change the color of the hovered column top to match the current player color
+		- Also include some text that says 'click me' or 'select' or something similar
 	> Add a legend, showing the player color and number correspondence
 	> Add an HTML element that shows the current player number and color
 
