@@ -2,6 +2,11 @@
 /* 10/15/22 */
 /* Unit 11 - Connect Four Project */
 
+body {
+    background-image: linear-gradient(lightgreen, white);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
 h1 {
     text-align: center;
