@@ -45,10 +45,11 @@ h1 {
 
 /* The column-top designates the table row of clickable areas at the top of each column. */
 #column-top td {
-  border: dashed 1px gray;
+    background-color: rgb(195, 195, 181);
+    border: dashed 1px gray;
 }
 
 /* Change the color of the column top that is hovered over. */
 #column-top td:hover {
-  background-color: gold;
+    background-image: linear-gradient(gold, rgb(255, 250, 210));
 }
