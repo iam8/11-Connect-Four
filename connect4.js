@@ -146,10 +146,12 @@ function handleClick(evt) {
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
 function checkForWin() {
+
+    /** _win: check four adjoining cells (horizontal, vertical, and diagonal) to see if they have been filled by the current player.
+     * - cells: array of four (y, x) cells
+     * - Return true if all four cells are legal coordinates and all match currPlayer
+    */
     function _win(cells) {
-        // Check four cells to see if they're all color of current player
-        //  - cells: list of four (y, x) cells
-        //  - returns true if all are legal coordinates & all match currPlayer
 
         return cells.every(
         ([y, x]) =>
@@ -161,14 +163,23 @@ function checkForWin() {
         );
   }
 
-  // TODO: read and understand this code. Add comments to help you.
+    // Iterate over each cell of the gameboard
     for (let y = 0; y < HEIGHT; y++) {
         for (let x = 0; x < WIDTH; x++) {
+
+            /** For each board cell, build an array holding the coordinates of:
+             * 1) 4 cells to the right
+             * 2) 4 cells upwards
+             * 3) 4 cells diagonally down right
+             * 4) 4 cells diagonally down left
+             * The first set of coordinates is always the coordinates of the current cell.
+            */
             const horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
             const vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
             const diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
             const diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
 
+            // Check if any of the above sets of four cells constitutes a 'win' (all cells in a set are filled by a single player)
             if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
                 return true;
             }
@@ -176,5 +187,5 @@ function checkForWin() {
     }
 }
 
-makeBoard();
-makeHtmlBoard();
+makeBoard(); // Create the JS game board
+makeHtmlBoard(); // Create the HTML game board
