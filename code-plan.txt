@@ -26,7 +26,6 @@ what the starter code suggested. However, I think my way would still work - I ca
 be more or less efficient, or more or less readable, etc.
 
 TODO: Put in some more CSS styling and features all over.
-	> Add radial gradient to the player pieces
 	> Style the 'Connect Four' header - fonts, color, centering
 	> Put a down arrow icon at the top row of the board (on hover - replace the gold color change)
 		- The arrow should be the color of the current player
