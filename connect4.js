@@ -14,6 +14,8 @@ const HEIGHT = 6;
 let currPlayer = 1; // Denotes the active player: 1 or 2
 const board = []; // An array of rows, where each row is array of cells (board[y][x])
 
+let isGameActive = true;
+
 /** makeBoard: create the in-JS board structure.
  NOTE: The JS board does NOT include the topmost (header) row that will be visible in-game (HTML).
 */
@@ -107,6 +109,11 @@ function endGame(msg) {
 /** handleClick: handle clicks on the topmost table row (used for playing a piece) */
 function handleClick(evt) {
 
+    // If game has ended, ignore further clicks
+    if (!isGameActive) {
+        return;
+    }
+
     // Get x from the ID of the clicked cell
     const x = +evt.target.id;
 
@@ -125,6 +132,7 @@ function handleClick(evt) {
 
     // Check for a win
     if (checkForWin()) {
+        isGameActive = false;
         return endGame(`Player ${currPlayer} won!`);
     }
 
@@ -137,6 +145,7 @@ function handleClick(evt) {
 
     // If the entire board is filled, call endGame
     if (isBoardFilled) {
+        isGameActive = false;
         return endGame("The game ended in a tie!");
     }
 
