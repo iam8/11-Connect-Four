@@ -124,7 +124,8 @@ function handleClick(evt) {
     placeInTable(y, x);
 
     // Update the JS in-memory board to reflect that the slot at (y, x) has been filled by a piece
-    board[y][x] = "filled";
+    // corresponding to the current player
+    board[y][x] = currPlayer;
 
     // Check for a win
     if (checkForWin()) {
