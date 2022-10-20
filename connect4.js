@@ -140,7 +140,7 @@ function handleClick(evt) {
 
     // If the entire board is filled, call endGame
     if (isBoardFilled) {
-        return endGame("The game ended in a tie!")
+        return endGame("The game ended in a tie!");
     }
 
     // Switch players (1 <=> 2)
