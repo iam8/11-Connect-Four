@@ -2,16 +2,10 @@
 /* 10/15/22 */
 /* Unit 11 - Connect Four Project */
 
-/* Game board table. */
-#board td {
-    width: 65px;
-    height: 65px;
-    border: solid 1px #666;
-}
 
 /* The pieces are divs within the game table cells, drawn as colored circles. */
 .piece {
-    margin: 5px;
+    margin: auto;
     width: 80%;
     height: 80%;
     border-radius: 100%;
@@ -26,12 +20,24 @@
     background-color: red;
 }
 
+/* The whole game board table. */
+#board {
+    margin: 30px auto;
+}
+
+/* Individual game board cells. */
+#board td {
+    width: 65px;
+    height: 65px;
+    border: solid 1px #666;
+}
+
 /* The column-top designates the table row of clickable areas at the top of each column. */
 #column-top td {
   border: dashed 1px lightgray;
 }
 
-/* Change the color of the column top that is hovered over */
+/* Change the color of the column top that is hovered over. */
 #column-top td:hover {
   background-color: gold;
 }
