@@ -107,12 +107,13 @@ function endGame(msg) {
     // TODO: pop up alert message
 }
 
-/** handleClick: handle click of column top to play piece */
+/** handleClick: handle clicks on the topmost table row (used for playing a piece) */
 function handleClick(evt) {
-    // get x from ID of clicked cell
+
+    // Get x from the ID of the clicked cell
     const x = +evt.target.id;
 
-    // get next spot in column (if none, ignore click)
+    // Get the next empty spot in the current column (if there are none, ignore the click)
     const y = findSpotForCol(x);
     if (y === null) {
         return;
@@ -121,18 +122,18 @@ function handleClick(evt) {
     // Place piece on board and add it to the HTML table
     placeInTable(y, x);
 
-    // Update the JS in-memory board to reflect that the slot  at (y, x) has been filled by a piece
+    // Update the JS in-memory board to reflect that the slot at (y, x) has been filled by a piece
     board[y][x] = "filled";
 
-    // check for win
+    // Check for a win
     if (checkForWin()) {
         return endGame(`Player ${currPlayer} won!`);
     }
 
-    // check for tie
+    // Check for a tie
     // TODO: check if all cells in board are filled; if so call, call endGame
 
-    // switch players
+    // Switch players
     // TODO: switch currPlayer 1 <-> 2
 }
 
