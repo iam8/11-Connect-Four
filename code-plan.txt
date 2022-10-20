@@ -25,12 +25,6 @@ NOTE: The above plan I wrote (before I read the starter code for the project) en
 what the starter code suggested. However, I think my way would still work - I can't tell for sure if it would
 be more or less efficient, or more or less readable, etc.
 
-TODO: Add JS code to ensure that after the game ends (and a winner is declared), the user can't keep interacting
-with the game.
-	> Maybe removing the event listeners? Though there are multiple...
-	> Better: add a condition in the event listener that checks whether the game has ended; if so, ignore
-	  clicks that come in after game end
-
 TODO: add instructions in HTML to the game page (for how to play)
 
 TODO: Put in some more CSS styling and features all over.
