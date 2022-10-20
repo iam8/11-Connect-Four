@@ -3,6 +3,11 @@
 /* Unit 11 - Connect Four Project */
 
 
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
 /* The pieces are divs within the game table cells, drawn as colored circles. */
 .piece {
     margin: auto;
@@ -27,8 +32,8 @@
 
 /* Individual game board cells. */
 #board td {
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
     border: solid 1px #666;
 }
 
