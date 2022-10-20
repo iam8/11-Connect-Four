@@ -23,11 +23,11 @@ h1 {
 
 /* The player pieces are either red or blue, depending on player number. */
 .p1 {
-    background-color: blue;
+    background-image: radial-gradient(circle, lightblue, blue);
 }
 
 .p2 {
-    background-color: red;
+    background-image: radial-gradient(circle, pink, red);
 }
 
 /* The whole game board table. */
