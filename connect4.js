@@ -14,7 +14,9 @@ const HEIGHT = 6;
 let currPlayer = 1; // Denotes the active player: 1 or 2
 const board = []; // An array of rows, where each row is array of cells (board[y][x])
 
-/** makeBoard: create the in-JS board structure. */
+/** makeBoard: create the in-JS board structure.
+ NOTE: The JS board does NOT include the topmost (header) row that will be visible in-game (HTML).
+*/
 function makeBoard() {
 
     for (let i = 0; i < HEIGHT; i++) {
@@ -67,10 +69,21 @@ function makeHtmlBoard() {
     }
 }
 
-/** findSpotForCol: given column x, return top empty y (null if filled) */
+/** findSpotForCol: for a given column x, return the topmost empty y (null if entire column is filled) */
 function findSpotForCol(x) {
-    // TODO: write the real version of this, rather than always returning 0
-    return 0;
+
+    // If the very first slot (row y = 0) is not empty, the entire column is filled
+    if (board[0][x] !== null) {
+        return null;
+    }
+
+    // Traverse the rest of column x (starting at row y = 1) until a non-empty slot is reached
+    let y = 1;
+    while (y < HEIGHT && board[y][x] === null) {
+        y++;
+    }
+
+    return y - 1;
 }
 
 /** placeInTable: update the DOM to place a piece into the HTML table of board. */
@@ -82,6 +95,7 @@ function placeInTable(y, x) {
 
     // Retrieve the correct td element and place this new div inside it
     const targetTd = document.getElementById(`${y}-${x}`);
+    console.log("Coordinates of targetTd:", y, x);
     targetTd.append(playedPiece);
 
     console.log("Piece placed at ", y, x);
@@ -104,9 +118,11 @@ function handleClick(evt) {
         return;
     }
 
-    // place piece in board and add to HTML table
-    // TODO: add line to update in-memory board
+    // Place piece on board and add it to the HTML table
     placeInTable(y, x);
+
+    // Update the JS in-memory board to reflect that the slot  at (y, x) has been filled by a piece
+    board[y][x] = "filled";
 
     // check for win
     if (checkForWin()) {
