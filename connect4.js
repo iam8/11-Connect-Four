@@ -49,6 +49,7 @@ function makeHtmlBoard() {
     for (let x = 0; x < WIDTH; x++) {
         const headCell = document.createElement("td");
         headCell.setAttribute("id", x);
+        headCell.className = "player-blue";
         top.append(headCell);
     }
 
@@ -151,6 +152,12 @@ function handleClick(evt) {
 
     // Switch players (1 <=> 2)
     currPlayer === 1 ? currPlayer = 2 : currPlayer = 1;
+
+    // Switch the class of the cells in the HTML column header row to reflect the new player color
+    const columnTopCells = document.querySelectorAll("#column-top td");
+    for (let cell of columnTopCells) {
+        currPlayer === 1 ? cell.className = "player-blue" : cell.className = "player-red";
+    }
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
