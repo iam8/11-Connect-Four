@@ -39,6 +39,14 @@ h1 {
     width: 25vw;
 }
 
+.player-blue {
+    background-color: lightblue;
+}
+
+.player-red {
+    background-color: pink;
+}
+
 #rules {
     background-color: purple;
     margin: 25px;
@@ -88,7 +96,6 @@ h1 {
 }
 
 #player-indicator {
-    background-color: lightblue;
     margin: 10px 0px;
 }
 
