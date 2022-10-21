@@ -136,7 +136,15 @@ function handleClick(evt) {
     // Check for a win
     if (checkForWin()) {
         isGameActive = false;
-        return endGame(`Player ${currPlayer} won!`);
+        playerInd.innerText = "GAME OVER!";
+        playerInd.className = "game-over";
+
+        // Turn off hover color-change for column header cells
+        for (let cell of columnTopCells) {
+            cell.classList.remove(`player-${colorKey[currPlayer]}`);
+        }
+
+        return endGame(`Player ${currPlayer} (${colorKey[currPlayer].toUpperCase()}) won!`);
     }
 
     // Check if the entire board is filled with no wins (tie)
@@ -149,6 +157,14 @@ function handleClick(evt) {
     // If the entire board is filled, call endGame
     if (isBoardFilled) {
         isGameActive = false;
+        playerInd.innerText = "GAME OVER!";
+        playerInd.className = "game-over";
+
+        // Turn off hover color-change for column header cells
+        for (let cell of columnTopCells) {
+            cell.classList.remove(`player-${colorKey[currPlayer]}`);
+        }
+
         return endGame("The game ended in a tie!");
     }
 
@@ -161,7 +177,7 @@ function handleClick(evt) {
     }
 
     // Change the player indicator element to reflect current player
-    playerInd.innerText = `Current player: ${colorKey[currPlayer].toUpperCase()}`;
+    playerInd.innerText = `Current player: ${currPlayer} (${colorKey[currPlayer].toUpperCase()})`;
     playerInd.className = `player-${colorKey[currPlayer]}`;
 }
 
