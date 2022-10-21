@@ -32,6 +32,7 @@ TODO: Put in some more CSS styling and features all over.
 	> Make CSS ruleset for class 'game-over', for the player indicator div
 	> Make a function called 'gameOver' or something like it that wraps up everything (updates DOM with game over stuff, pops up the alert, etc.)
 		- Actually, just put all that stuff in endGame function
+	> Possibly add some sort of refresh option (button) to reset game board
 
 
 
