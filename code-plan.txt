@@ -33,5 +33,6 @@ TODO: Put in some more CSS styling and features all over.
 		- Also include some text that says 'click me' or 'select' or something similar
 	> Add a legend, showing the player color and number correspondence
 	> Add an HTML element that shows the current player number and color
+	> Possibly add some shadowing to the borders around cells? Not sure how that would look
 
 	
