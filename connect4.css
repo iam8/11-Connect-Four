@@ -32,6 +32,7 @@ h1 {
 
 .flexExperiments {
     background-color: mintcream;
+    width: 25vw;
 }
 
 #rules {
@@ -43,6 +44,7 @@ h1 {
 #game {
     background-color: blueviolet;
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     margin: 25px;
 }
@@ -55,8 +57,8 @@ h1 {
 /* Individual game board cells. */
 #board td {
     background-color: beige;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     border: solid 1px #666;
 }
 
