@@ -29,8 +29,10 @@ TODO: Put in some more CSS styling and features all over.
 	> Style the 'Connect Four' header - fonts, color, centering
 	> Low priority: put a down arrow icon at the top row of the board (on hover - replace the gold color change)
 	> Add a legend, showing the player color and number correspondence
-	> Retrieve important DOM elements at bottom of script, after DOM is loaded, and save to variables for use in functions
-	> Add code so that after game over, a message is displayed in HTML on screen as well, and no more indications of 'current player' are shown
+	> Make CSS ruleset for class 'game-over', for the player indicator div
+	> Make a function called 'gameOver' or something like it that wraps up everything (updates DOM with game over stuff, pops up the alert, etc.)
+		- Actually, just put all that stuff in endGame function
+
 
 
 	
