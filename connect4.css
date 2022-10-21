@@ -30,6 +30,10 @@ h1 {
     background-image: radial-gradient(circle, pink, red);
 }
 
+.flexExperiments {
+    background-color: mintcream;
+}
+
 #rules {
     background-color: purple;
     margin: 25px;
@@ -38,13 +42,15 @@ h1 {
 /* The section that contains (wraps around) the game board. */
 #game {
     background-color: blueviolet;
+    display: flex;
+    justify-content: space-evenly;
     margin: 25px;
 }
 
 /* The whole game board table. */
-#board {
-    margin: auto;
-}
+/* #board {
+
+} */
 
 /* Individual game board cells. */
 #board td {
