@@ -13,6 +13,7 @@ const HEIGHT = 6;
 
 let currPlayer = 1; // Denotes the active player: 1 or 2
 const colorKey = {1: "blue", 2: "red"};
+
 const board = []; // An array of rows, where each row is array of cells (board[y][x])
 
 let isGameActive = true;
@@ -155,13 +156,11 @@ function handleClick(evt) {
     currPlayer === 1 ? currPlayer = 2 : currPlayer = 1;
 
     // Switch the class of the cells in the HTML column header row to reflect the new player color
-    const columnTopCells = document.querySelectorAll("#column-top td");
     for (let cell of columnTopCells) {
         cell.className = `player-${colorKey[currPlayer]}`;
     }
 
     // Change the player indicator element to reflect current player
-    const playerInd = document.querySelector("#player-indicator");
     playerInd.innerText = `Current player: ${colorKey[currPlayer].toUpperCase()}`;
     playerInd.className = `player-${colorKey[currPlayer]}`;
 }
@@ -211,3 +210,11 @@ function checkForWin() {
 
 makeBoard(); // Create the JS game board
 makeHtmlBoard(); // Create the HTML game board
+
+/** Retrieve some important DOM elements after the HTML board has been created: */
+
+// Get the cells of the topmost table row (the column header cells)
+const columnTopCells = document.querySelectorAll("#column-top td");
+
+// Get the player indicator element
+const playerInd = document.querySelector("#player-indicator");
