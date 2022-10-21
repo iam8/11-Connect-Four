@@ -30,9 +30,20 @@ h1 {
     background-image: radial-gradient(circle, pink, red);
 }
 
+#rules {
+    background-color: purple;
+    margin: 25px;
+}
+
+/* The section that contains (wraps around) the game board. */
+#game {
+    background-color: blueviolet;
+    margin: 25px;
+}
+
 /* The whole game board table. */
 #board {
-    margin: 30px auto;
+    margin: auto;
 }
 
 /* Individual game board cells. */
