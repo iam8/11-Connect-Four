@@ -103,9 +103,23 @@ function placeInTable(y, x) {
     targetTd.append(playedPiece);
 }
 
-/** endGame: announce the end of the game with an alert popup. */
+/** endGame: reflect the end of the game on the webpage:
+ * > Display a 'game over' message next to the game board
+ * > Remove indicators of 'current player'
+ * > Show an alert popup
+ */
 function endGame(msg) {
 
+    isGameActive = false;
+    playerInd.innerText = "GAME OVER!";
+    playerInd.className = "game-over";
+
+    // Turn off hover color-change for column header cells
+    for (let cell of columnTopCells) {
+        cell.classList.remove(`player-${colorKey[currPlayer]}`);
+    }
+
+    // Alert popup
     alert(msg);
 }
 
@@ -135,15 +149,6 @@ function handleClick(evt) {
 
     // Check for a win
     if (checkForWin()) {
-        isGameActive = false;
-        playerInd.innerText = "GAME OVER!";
-        playerInd.className = "game-over";
-
-        // Turn off hover color-change for column header cells
-        for (let cell of columnTopCells) {
-            cell.classList.remove(`player-${colorKey[currPlayer]}`);
-        }
-
         return endGame(`Player ${currPlayer} (${colorKey[currPlayer].toUpperCase()}) won!`);
     }
 
@@ -156,15 +161,6 @@ function handleClick(evt) {
 
     // If the entire board is filled, call endGame
     if (isBoardFilled) {
-        isGameActive = false;
-        playerInd.innerText = "GAME OVER!";
-        playerInd.className = "game-over";
-
-        // Turn off hover color-change for column header cells
-        for (let cell of columnTopCells) {
-            cell.classList.remove(`player-${colorKey[currPlayer]}`);
-        }
-
         return endGame("The game ended in a tie!");
     }
 
