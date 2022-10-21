@@ -158,6 +158,13 @@ function handleClick(evt) {
     for (let cell of columnTopCells) {
         currPlayer === 1 ? cell.className = "player-blue" : cell.className = "player-red";
     }
+
+    // Change the player indicator element to reflect current player
+    const playerInd = document.querySelector("#player-indicator");
+    currPlayer === 1 ? playerInd.innerText = "Current player: BLUE" :
+                       playerInd.innerText = "Current player: RED";
+    
+    currPlayer === 1 ? playerInd.className = "player-blue" : playerInd.className = "player-red";
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
