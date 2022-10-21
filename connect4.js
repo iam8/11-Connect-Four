@@ -12,6 +12,7 @@ const WIDTH = 7;
 const HEIGHT = 6;
 
 let currPlayer = 1; // Denotes the active player: 1 or 2
+const colorKey = {1: "blue", 2: "red"};
 const board = []; // An array of rows, where each row is array of cells (board[y][x])
 
 let isGameActive = true;
@@ -49,7 +50,7 @@ function makeHtmlBoard() {
     for (let x = 0; x < WIDTH; x++) {
         const headCell = document.createElement("td");
         headCell.setAttribute("id", x);
-        headCell.className = "player-blue";
+        headCell.className = `player-${colorKey[currPlayer]}`;
         top.append(headCell);
     }
 
@@ -156,15 +157,13 @@ function handleClick(evt) {
     // Switch the class of the cells in the HTML column header row to reflect the new player color
     const columnTopCells = document.querySelectorAll("#column-top td");
     for (let cell of columnTopCells) {
-        currPlayer === 1 ? cell.className = "player-blue" : cell.className = "player-red";
+        cell.className = `player-${colorKey[currPlayer]}`;
     }
 
     // Change the player indicator element to reflect current player
     const playerInd = document.querySelector("#player-indicator");
-    currPlayer === 1 ? playerInd.innerText = "Current player: BLUE" :
-                       playerInd.innerText = "Current player: RED";
-    
-    currPlayer === 1 ? playerInd.className = "player-blue" : playerInd.className = "player-red";
+    playerInd.innerText = `Current player: ${colorKey[currPlayer].toUpperCase()}`;
+    playerInd.className = `player-${colorKey[currPlayer]}`;
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
