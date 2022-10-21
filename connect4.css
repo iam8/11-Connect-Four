@@ -73,8 +73,18 @@ h1 {
 }
 
 /* Change the color of the column top that is hovered over. */
-#column-top td:hover {
+/* #column-top td:hover {
     background-image: linear-gradient(gold, rgb(255, 250, 210));
+} */
+
+/* Change the color of the column top that is hovered over to reflect it is the blue player's turn. */
+#column-top td.player-blue:hover {
+    background-image: linear-gradient(blue, lightblue);
+}
+
+/* Change the color of the column top that is hovered over to reflect it is the red player's turn. */
+#column-top td.player-red:hover {
+    background-image: linear-gradient(red, pink);
 }
 
 #player-indicator {
