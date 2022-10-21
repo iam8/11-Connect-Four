@@ -32,6 +32,10 @@ h1 {
 
 .flexExperiments {
     background-color: mintcream;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 25vw;
 }
 
@@ -71,4 +75,14 @@ h1 {
 /* Change the color of the column top that is hovered over. */
 #column-top td:hover {
     background-image: linear-gradient(gold, rgb(255, 250, 210));
+}
+
+#player-indicator {
+    background-color: lightblue;
+    margin: 10px 0px;
+}
+
+#legend {
+    background-color: yellow;
+    margin: 10px 0px;
 }
