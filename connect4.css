@@ -30,13 +30,15 @@ h1 {
     background-image: radial-gradient(circle, pink, red);
 }
 
-.flexExperiments {
+.side-bar {
     background-color: mintcream;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 25vw;
+    text-align: center;
+    padding: 5px;
 }
 
 .player-blue {
@@ -51,12 +53,10 @@ h1 {
 
 .game-over-blue {
     color: blue;
-    text-align: center;
 }
 
 .game-over-red {
     color: red;
-    text-align: center;
 }
 
 #rules {
