@@ -111,8 +111,9 @@ function placeInTable(y, x) {
 function endGame(msg) {
 
     isGameActive = false;
-    playerInd.innerText = "GAME OVER!";
-    playerInd.className = "game-over";
+    playerInd.innerText = `GAME OVER!\nPlayer ${currPlayer} (${colorKey[currPlayer].toUpperCase ()}) won!`;
+
+    playerInd.className = `game-over-${colorKey[currPlayer]}`;
 
     // Turn off hover color-change for column header cells
     for (let cell of columnTopCells) {
