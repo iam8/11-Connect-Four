@@ -26,13 +26,13 @@ what the starter code suggested. However, I think my way would still work - I ca
 be more or less efficient, or more or less readable, etc.
 
 TODO: Put in some more CSS styling and features all over.
-	> Style the 'Connect Four' header - fonts, color, centering
-	> Low priority: put a down arrow icon at the top row of the board (on hover - replace the gold color change)
-	> Add a legend, showing the player color and number correspondence
+	> Style the 'Connect Four' header - fonts, color, centering	
 	> Make CSS ruleset for class 'game-over', for the player indicator div
-	> Make a function called 'gameOver' or something like it that wraps up everything (updates DOM with game over stuff, pops up the alert, etc.)
-		- Actually, just put all that stuff in endGame function
-	> Possibly add some sort of refresh option (button) to reset game board
+
+Features to add for next time
+	> Add some sort of refresh option (button) to reset game board
+	> Add a legend, showing the player color and number correspondence (probably overkill though)
+	> Put a down arrow icon at the top row of the board (on hover - replace the gold color change)
 
 
 
