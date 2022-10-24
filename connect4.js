@@ -108,8 +108,8 @@ function placeInTable(y, x) {
  * > Remove indicators of 'current player'
  * > Show an alert popup
  * 
- * - msg: the string message to display on the webpage
- * - endType: the type of game end: "tie" for a tied game, and anything else for a player win
+ * - msg (string): the message to display on the webpage
+ * - endType (string): the type of game end: "tie" for a tied game, and anything else for a player win
  */
 function endGame(msg, endType) {
 
