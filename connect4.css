@@ -3,7 +3,7 @@
 /* Unit 11 - Connect Four Project */
 
 body {
-    background-image: linear-gradient(lightgreen, white);
+    background-image: linear-gradient(MediumPurple, white);
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -30,6 +30,7 @@ h1 {
     background-image: radial-gradient(circle, pink, red);
 }
 
+/* The large areas to the left and right of the game board. */
 .side-bar {
     background-color: mintcream;
     display: flex;
@@ -66,9 +67,9 @@ h1 {
 }
 
 .game-over-tie {
-    background-color: violet;
-    color: blueviolet;
-    border: 2px solid blueviolet;
+    background-color: rgb(192, 119, 255);
+    color: rgb(69, 22, 114);
+    border: 2px solid rgb(69, 22, 114);
     padding: 10px;
 }
 
@@ -79,7 +80,7 @@ h1 {
 
 /* The section that contains (wraps around) the game board. */
 #game {
-    background-color: blueviolet;
+    background-color: green;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
