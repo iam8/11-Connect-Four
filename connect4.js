@@ -107,13 +107,17 @@ function placeInTable(y, x) {
  * > Display a 'game over' message next to the game board
  * > Remove indicators of 'current player'
  * > Show an alert popup
+ * 
+ * - msg: the string message to display on the webpage
+ * - endType: the type of game end: "tie" for a tied game, and anything else for a player win
  */
-function endGame(msg) {
+function endGame(msg, endType) {
 
     isGameActive = false;
-    playerInd.innerText = `GAME OVER!\nPlayer ${currPlayer} (${colorKey[currPlayer].toUpperCase ()}) won!`;
+    playerInd.innerText = `GAME OVER!\n${msg}`;
 
-    playerInd.className = `game-over-${colorKey[currPlayer]}`;
+    endType.toLowerCase() === "tie" ? playerInd.className = "game-over-tie" :
+                                      playerInd.className = `game-over-${colorKey[currPlayer]}`;
 
     // Turn off hover color-change for column header cells
     for (let cell of columnTopCells) {
@@ -150,7 +154,7 @@ function handleClick(evt) {
 
     // Check for a win
     if (checkForWin()) {
-        return endGame(`Player ${currPlayer} (${colorKey[currPlayer].toUpperCase()}) won!`);
+        return endGame(`Player ${currPlayer} (${colorKey[currPlayer].toUpperCase()}) won!`, "player");
     }
 
     // Check if the entire board is filled with no wins (tie)
@@ -162,7 +166,7 @@ function handleClick(evt) {
 
     // If the entire board is filled, call endGame
     if (isBoardFilled) {
-        return endGame("The game ended in a tie!");
+        return endGame("The game ended in a tie!", "tie");
     }
 
     // Switch players (1 <=> 2)
