@@ -49,18 +49,21 @@ h2 {
 }
 
 .player-blue {
-    background-color: lightblue;
+    /* background-color: lightblue; */
     color: blue;
+    font-weight: bold;
 }
 
 .player-red {
-    background-color: pink;
+    /* background-color: pink; */
     color: red;
+    font-weight: bold;
 }
 
 .game-over-blue {
     background-color: lightblue;
     color: blue;
+    font-weight: bold;
     border: 2px solid blue;
     padding: 10px;
 }
@@ -68,6 +71,7 @@ h2 {
 .game-over-red {
     background-color: pink;
     color: red;
+    font-weight: bold;
     border: 2px solid red;
     padding: 10px;
 }
@@ -75,6 +79,7 @@ h2 {
 .game-over-tie {
     background-color: rgb(192, 119, 255);
     color: rgb(69, 22, 114);
+    font-weight: bold;
     border: 2px solid rgb(69, 22, 114);
     padding: 10px;
 }
