@@ -47,6 +47,10 @@ h1 {
     background-color: pink;
 }
 
+.game-over {
+    background-color: gray;
+}
+
 #rules {
     background-color: purple;
     margin: 25px;
@@ -61,11 +65,6 @@ h1 {
     margin: 25px;
 }
 
-/* The whole game board table. */
-/* #board {
-
-} */
-
 /* Individual game board cells. */
 #board td {
     background-color: beige;
@@ -79,11 +78,6 @@ h1 {
     background-color: rgb(195, 195, 181);
     border: dashed 1px gray;
 }
-
-/* Change the color of the column top that is hovered over. */
-/* #column-top td:hover {
-    background-image: linear-gradient(gold, rgb(255, 250, 210));
-} */
 
 /* Change the color of the column top that is hovered over to reflect it is the blue player's turn. */
 #column-top td.player-blue:hover {
