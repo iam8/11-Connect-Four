@@ -52,11 +52,17 @@ h1 {
 }
 
 .game-over-blue {
+    background-color: lightblue;
     color: blue;
+    border: 2px solid blue;
+    padding: 10px;
 }
 
 .game-over-red {
+    background-color: pink;
     color: red;
+    border: 2px solid red;
+    padding: 10px;
 }
 
 #rules {
