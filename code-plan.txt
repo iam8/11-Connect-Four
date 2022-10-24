@@ -29,7 +29,7 @@ TODO: Put in some more CSS styling and features all over.
 	> Style the 'Connect Four' header - fonts, color, centering	
 	> Make CSS ruleset for class 'game-over', for the player indicator div
 		- Make separate for the different colors - ex. blue winner should show blue text
-	> Write game board instructions (where to click, etc.)
+	> Change fonts and font sizes for entire page
 
 Features to add for next time
 	> Add some sort of refresh option (button) to reset game board
