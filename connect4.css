@@ -65,6 +65,13 @@ h1 {
     padding: 10px;
 }
 
+.game-over-tie {
+    background-color: violet;
+    color: blueviolet;
+    border: 2px solid blueviolet;
+    padding: 10px;
+}
+
 #rules {
     background-color: purple;
     margin: 15px;
