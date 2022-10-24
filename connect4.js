@@ -116,6 +116,7 @@ function endGame(msg, endType) {
     isGameActive = false;
     playerInd.innerText = `GAME OVER!\n${msg}`;
 
+    // Change class of player indicator according to end game type and player color
     endType.toLowerCase() === "tie" ? playerInd.className = "game-over-tie" :
                                       playerInd.className = `game-over-${colorKey[currPlayer]}`;
 
@@ -164,7 +165,7 @@ function handleClick(evt) {
         })
     })
 
-    // If the entire board is filled, call endGame
+    // If the entire board is filled, call endGame (for a tie)
     if (isBoardFilled) {
         return endGame("The game ended in a tie!", "tie");
     }
