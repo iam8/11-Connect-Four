@@ -41,19 +41,27 @@ h1 {
 
 .player-blue {
     background-color: lightblue;
+    color: blue;
 }
 
 .player-red {
     background-color: pink;
+    color: red;
 }
 
-.game-over {
-    background-color: gray;
+.game-over-blue {
+    color: blue;
+    text-align: center;
+}
+
+.game-over-red {
+    color: red;
+    text-align: center;
 }
 
 #rules {
     background-color: purple;
-    margin: 25px;
+    margin: 15px;
 }
 
 /* The section that contains (wraps around) the game board. */
