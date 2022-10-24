@@ -97,11 +97,10 @@ h1 {
     background-image: linear-gradient(red, pink);
 }
 
-#player-indicator {
-    margin: 10px 0px;
+#instructions {
+    background-color: yellow;
 }
 
-#legend {
-    background-color: yellow;
+#player-indicator {
     margin: 10px 0px;
 }
