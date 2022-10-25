@@ -3,7 +3,7 @@
 /* Unit 11 - Connect Four Project */
 
 body {
-    background-image: linear-gradient(MediumPurple, white);
+    background-image: linear-gradient(cornflowerblue, white);
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: Verdana, Tahoma, sans-serif;
@@ -73,6 +73,7 @@ hr {
     background-color: lightblue;
     color: blue;
     border: 2px solid blue;
+    border-radius: 30px;
     padding: 10px;
 }
 
@@ -80,6 +81,7 @@ hr {
     background-color: pink;
     color: red;
     border: 2px solid red;
+    border-radius: 30px;
     padding: 10px;
 }
 
@@ -87,6 +89,7 @@ hr {
     background-color: rgb(192, 119, 255);
     color: rgb(69, 22, 114);
     border: 2px solid rgb(69, 22, 114);
+    border-radius: 30px;
     padding: 10px;
 }
 
