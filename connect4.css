@@ -94,7 +94,7 @@ hr {
     margin: 15px;
 }
 
-/* The section that contains (wraps around) the game board. */
+/* The section that contains (wraps around) the game board and the areas next to it. */
 #game {
     display: flex;
     flex-direction: row;
