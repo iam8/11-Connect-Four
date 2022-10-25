@@ -109,7 +109,7 @@ function placeInTable(y, x) {
  * > Show an alert popup
  * 
  * - msg (string): the message to display on the webpage
- * - endType (string): the type of game end: "tie" for a tied game, and anything else for a player win
+ * - endType (string): the type of game end - "tie" for a tied game, and anything else for a player win
  */
 function endGame(msg, endType) {
 
@@ -155,7 +155,7 @@ function handleClick(evt) {
 
     // Check for a win
     if (checkForWin()) {
-        return endGame(`Player ${currPlayer} (${colorKey[currPlayer].toUpperCase()}) won!`, "player");
+        return endGame(`Player ${currPlayer} (${colorKey[currPlayer].toUpperCase()}) won!`, "player win");
     }
 
     // Check if the entire board is filled with no wins (tie)
