@@ -29,6 +29,7 @@ Features to add for next time
 	> Add some sort of refresh option (button) to reset game board
 	> Add a legend, showing the player color and number correspondence (probably overkill though)
 	> Put a down arrow icon at the top row of the board (on hover - replace the gold color change)
+	> Animation for pieces dropping down in the columns
 
 
 
