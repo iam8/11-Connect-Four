@@ -17,12 +17,10 @@ h1 {
     text-shadow: 5px 5px 4px darkred;
     font-size: 4em;
     margin: 0px;
-    /* background-color: lightgreen; */
 }
 
 h2 {
     font-size: 1.2em;
-    /* background-color: orange; */
 }
 
 /* Style the horizontal rule */
@@ -51,7 +49,6 @@ hr {
 
 /* The large areas to the left and right of the game board. */
 .side-bar {
-    /* background-color: mintcream; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,13 +91,11 @@ hr {
 }
 
 #rules {
-    /* background-color: purple; */
     margin: 15px;
 }
 
 /* The section that contains (wraps around) the game board. */
 #game {
-    /* background-color: green; */
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -132,7 +127,6 @@ hr {
 }
 
 #instructions {
-    /* background-color: yellow; */
     font-size: 1.2em;
 }
 
