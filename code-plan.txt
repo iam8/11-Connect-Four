@@ -25,9 +25,6 @@ NOTE: The above plan I wrote (before I read the starter code for the project) en
 what the starter code suggested. However, I think my way would still work - I can't tell for sure if it would
 be more or less efficient, or more or less readable, etc.
 
-TODO: Put in some more CSS styling and features all over.
-	> Decide on a final background color (gradient)
-
 Features to add for next time
 	> Add some sort of refresh option (button) to reset game board
 	> Add a legend, showing the player color and number correspondence (probably overkill though)
