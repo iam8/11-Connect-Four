@@ -7,16 +7,29 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: Verdana, Tahoma, sans-serif;
-    /* font-size: 0.5em; */
 }
 
 h1 {
     text-align: center;
     text-transform: uppercase;
+    letter-spacing: 5px;
+    color: darkblue;
+    text-shadow: 5px 5px 4px darkred;
+    font-size: 4em;
+    margin: 0px;
+    /* background-color: lightgreen; */
 }
 
 h2 {
     font-size: 1.2em;
+    /* background-color: orange; */
+}
+
+/* Style the horizontal rule */
+hr {
+    background-color: grey;
+    height: 1px;
+    border: none
 }
 
 /* The pieces are divs within the game table cells, drawn as colored circles. */
@@ -38,7 +51,7 @@ h2 {
 
 /* The large areas to the left and right of the game board. */
 .side-bar {
-    background-color: mintcream;
+    /* background-color: mintcream; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,12 +62,10 @@ h2 {
 }
 
 .player-blue {
-    /* background-color: lightblue; */
     color: blue;
 }
 
 .player-red {
-    /* background-color: pink; */
     color: red;
 }
 
@@ -80,17 +91,17 @@ h2 {
 }
 
 #rules {
-    background-color: purple;
+    /* background-color: purple; */
     margin: 15px;
 }
 
 /* The section that contains (wraps around) the game board. */
 #game {
-    background-color: green;
+    /* background-color: green; */
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 25px;
+    margin: 15px;
 }
 
 /* Individual game board cells. */
@@ -104,7 +115,7 @@ h2 {
 /* The column-top designates the table row of clickable areas at the top of each column. */
 #column-top td {
     background-color: rgb(195, 195, 181);
-    border: dashed 1px gray;
+    border: dashed 1px dimgray;
 }
 
 /* Change the color of the column top that is hovered over to reflect it is the blue player's turn. */
@@ -118,10 +129,12 @@ h2 {
 }
 
 #instructions {
-    background-color: yellow;
+    /* background-color: yellow; */
+    font-size: 1.2em;
 }
 
 #player-indicator {
+    font-size: 1.7em;
     font-weight: bold;
     margin: 10px 0px;
 }
