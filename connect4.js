@@ -1,133 +1,238 @@
+// Ioana Alex Mititean
+// 10/15/22
+// Unit 11 - Connect Four Project
+
 /** Connect Four
  *
- * Player 1 and 2 alternate turns. On each turn, a piece is dropped down a
- * column until a player gets four-in-a-row (horiz, vert, or diag) or until
- * board fills (tie)
+ * Player 1 and 2 alternate turns. On each turn, a piece is dropped down a column until a player
+ * gets four-in-a-row (horizontally, vertically, or diagonally) or until the board fills (tie).
  */
 
-var WIDTH = 7;
-var HEIGHT = 6;
+const WIDTH = 7;
+const HEIGHT = 6;
 
-var currPlayer = 1; // active player: 1 or 2
-var board = []; // array of rows, each row is array of cells  (board[y][x])
+let currPlayer = 1; // Denotes the active player: 1 or 2
+const colorKey = {1: "blue", 2: "red"};
 
-/** makeBoard: create in-JS board structure:
- *    board = array of rows, each row is array of cells  (board[y][x])
- */
+const board = []; // An array of rows, where each row is array of cells (board[y][x])
 
+let isGameActive = true;
+
+/** makeBoard: create the in-JS board structure.
+ NOTE: The JS board does NOT include the topmost (header) row that will be visible in-game (HTML).
+*/
 function makeBoard() {
-  // TODO: set "board" to empty HEIGHT x WIDTH matrix array
-}
 
-/** makeHtmlBoard: make HTML table and row of column tops. */
+    for (let i = 0; i < HEIGHT; i++) {
 
-function makeHtmlBoard() {
-  // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"
+        // Construct a subarray (which represents a board row) and fill it with 'null' values
+        const initRow = [];
+        for (let j = 0; j < WIDTH; j++) {
+            initRow.push(null);
+        }
 
-  // TODO: add comment for this code
-  var top = document.createElement("tr");
-  top.setAttribute("id", "column-top");
-  top.addEventListener("click", handleClick);
-
-  for (var x = 0; x < WIDTH; x++) {
-    var headCell = document.createElement("td");
-    headCell.setAttribute("id", x);
-    top.append(headCell);
-  }
-  htmlBoard.append(top);
-
-  // TODO: add comment for this code
-  for (var y = 0; y < HEIGHT; y++) {
-    const row = document.createElement("tr");
-    for (var x = 0; x < WIDTH; x++) {
-      const cell = document.createElement("td");
-      cell.setAttribute("id", `${y}-${x}`);
-      row.append(cell);
+        // Add the row to the game board
+        board.push(initRow);
     }
-    htmlBoard.append(row);
-  }
 }
 
-/** findSpotForCol: given column x, return top empty y (null if filled) */
+/** makeHtmlBoard: make the HTML table and the row of column tops. */
+function makeHtmlBoard() {
 
+    // Get the HTML board (a table with an ID of 'board')
+    const htmlBoard = document.querySelector("#board");
+
+    // Create a clickable table row for the top of the game board and add a click handler
+    const top = document.createElement("tr");
+    top.setAttribute("id", "column-top");
+    top.addEventListener("click", handleClick);
+
+    // Create data table cells for the top table row and assign an ID to each that corresponds to the cell's column number
+    for (let x = 0; x < WIDTH; x++) {
+        const headCell = document.createElement("td");
+        headCell.setAttribute("id", x);
+        headCell.className = `player-${colorKey[currPlayer]}`;
+        top.append(headCell);
+    }
+
+    // Add the top table row to the board
+    htmlBoard.append(top);
+
+    // Create and append table row elements to the game board
+    for (let y = 0; y < HEIGHT; y++) {
+        const row = document.createElement("tr");
+
+        // Create data table cells for this row and set an ID for each
+        for (let x = 0; x < WIDTH; x++) {
+            const cell = document.createElement("td");
+            cell.setAttribute("id", `${y}-${x}`);
+            row.append(cell);
+        }
+
+        // Add this row to the board
+        htmlBoard.append(row);
+    }
+}
+
+/** findSpotForCol: for a given column x, return the topmost empty y (null if entire column is filled) */
 function findSpotForCol(x) {
-  // TODO: write the real version of this, rather than always returning 0
-  return 0;
+
+    // If the very first slot (row y = 0) is not empty, the entire column is filled
+    if (board[0][x] !== null) {
+        return null;
+    }
+
+    // Traverse the rest of column x (starting at row y = 1) until a non-empty slot is reached
+    let y = 1;
+    while (y < HEIGHT && board[y][x] === null) {
+        y++;
+    }
+
+    return y - 1;
 }
 
-/** placeInTable: update DOM to place piece into HTML table of board */
-
+/** placeInTable: update the DOM to place a piece into the HTML table of board. */
 function placeInTable(y, x) {
-  // TODO: make a div and insert into correct table cell
+
+    // Create a new div that represents the piece that was just played
+    const playedPiece = document.createElement("div");
+    playedPiece.classList.add("piece", `p${currPlayer}`);
+
+    // Retrieve the correct td element and place this new div inside it
+    const targetTd = document.getElementById(`${y}-${x}`);
+    targetTd.append(playedPiece);
 }
 
-/** endGame: announce game end */
+/** endGame: reflect the end of the game on the webpage:
+ * > Display a 'game over' message next to the game board
+ * > Remove indicators of 'current player'
+ * > Show an alert popup
+ * 
+ * - msg (string): the message to display on the webpage
+ * - endType (string): the type of game end - "tie" for a tied game, and anything else for a player win
+ */
+function endGame(msg, endType) {
 
-function endGame(msg) {
-  // TODO: pop up alert message
+    isGameActive = false;
+    playerInd.innerText = `GAME OVER!\n${msg}`;
+
+    // Change class of player indicator according to end game type and player color
+    endType.toLowerCase() === "tie" ? playerInd.className = "game-over-tie" :
+                                      playerInd.className = `game-over-${colorKey[currPlayer]}`;
+
+    // Turn off hover color-change for column header cells
+    for (let cell of columnTopCells) {
+        cell.classList.remove(`player-${colorKey[currPlayer]}`);
+    }
+
+    // Alert popup
+    alert(msg);
 }
 
-/** handleClick: handle click of column top to play piece */
-
+/** handleClick: handle clicks on the topmost table row (used for playing a piece) */
 function handleClick(evt) {
-  // get x from ID of clicked cell
-  var x = +evt.target.id;
 
-  // get next spot in column (if none, ignore click)
-  var y = findSpotForCol(x);
-  if (y === null) {
-    return;
-  }
+    // If game has ended, ignore further clicks
+    if (!isGameActive) {
+        return;
+    }
 
-  // place piece in board and add to HTML table
-  // TODO: add line to update in-memory board
-  placeInTable(y, x);
+    // Get x from the ID of the clicked cell
+    const x = +evt.target.id;
 
-  // check for win
-  if (checkForWin()) {
-    return endGame(`Player ${currPlayer} won!`);
-  }
+    // Get the next empty spot in the current column (if there are none, ignore the click)
+    const y = findSpotForCol(x);
+    if (y === null) {
+        return;
+    }
 
-  // check for tie
-  // TODO: check if all cells in board are filled; if so call, call endGame
+    // Place piece on board and add it to the HTML table
+    placeInTable(y, x);
 
-  // switch players
-  // TODO: switch currPlayer 1 <-> 2
+    // Update the JS in-memory board to reflect that the slot at (y, x) has been filled by a piece
+    // corresponding to the current player
+    board[y][x] = currPlayer;
+
+    // Check for a win
+    if (checkForWin()) {
+        return endGame(`Player ${currPlayer} (${colorKey[currPlayer].toUpperCase()}) won!`, "player win");
+    }
+
+    // Check if the entire board is filled with no wins (tie)
+    const isBoardFilled = board.every((rowArr) => {
+        return rowArr.every((rowElement) => {
+            return rowElement !== null;
+        })
+    })
+
+    // If the entire board is filled, call endGame (for a tie)
+    if (isBoardFilled) {
+        return endGame("The game ended in a tie!", "tie");
+    }
+
+    // Switch players (1 <=> 2)
+    currPlayer === 1 ? currPlayer = 2 : currPlayer = 1;
+
+    // Switch the class of the cells in the HTML column header row to reflect the new player color
+    for (let cell of columnTopCells) {
+        cell.className = `player-${colorKey[currPlayer]}`;
+    }
+
+    // Change the player indicator element to reflect current player
+    playerInd.innerText = `Current player: ${currPlayer} (${colorKey[currPlayer].toUpperCase()})`;
+    playerInd.className = `player-${colorKey[currPlayer]}`;
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
-
 function checkForWin() {
-  function _win(cells) {
-    // Check four cells to see if they're all color of current player
-    //  - cells: list of four (y, x) cells
-    //  - returns true if all are legal coordinates & all match currPlayer
 
-    return cells.every(
-      ([y, x]) =>
-        y >= 0 &&
-        y < HEIGHT &&
-        x >= 0 &&
-        x < WIDTH &&
-        board[y][x] === currPlayer
-    );
+    /** _win: check four adjoining cells (horizontal, vertical, and diagonal) to see if they have been filled by the current player.
+     * - cells: array of four (y, x) cells
+     * - Return true if all four cells are legal coordinates and all match currPlayer
+    */
+    function _win(cells) {
+
+        return cells.every(
+        ([y, x]) =>
+            y >= 0 &&
+            y < HEIGHT &&
+            x >= 0 &&
+            x < WIDTH &&
+            board[y][x] === currPlayer
+        );
   }
 
-  // TODO: read and understand this code. Add comments to help you.
+    // Iterate over each cell of the gameboard
+    for (let y = 0; y < HEIGHT; y++) {
+        for (let x = 0; x < WIDTH; x++) {
 
-  for (var y = 0; y < HEIGHT; y++) {
-    for (var x = 0; x < WIDTH; x++) {
-      var horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
-      var vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
-      var diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
-      var diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
+            /** For each board cell, build an array holding the coordinates of:
+             * 1) 4 cells to the right
+             * 2) 4 cells upwards
+             * 3) 4 cells diagonally down right
+             * 4) 4 cells diagonally down left
+             * The first set of coordinates is always the coordinates of the current cell.
+            */
+            const horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
+            const vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
+            const diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
+            const diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
 
-      if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
-        return true;
-      }
+            // Check if any of the above sets of four cells constitutes a 'win' (all cells in a set are filled by a single player)
+            if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
+                return true;
+            }
+        }
     }
-  }
 }
 
-makeBoard();
-makeHtmlBoard();
+makeBoard(); // Create the JS game board
+makeHtmlBoard(); // Create the HTML game board
+
+/** Retrieve some important DOM elements after the HTML board has been created: */
+
+// Get the cells of the topmost table row (the column header cells)
+const columnTopCells = document.querySelectorAll("#column-top td");
+
+// Get the player indicator element
+const playerInd = document.querySelector("#player-indicator");

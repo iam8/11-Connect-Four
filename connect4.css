@@ -1,28 +1,137 @@
-/* game board table */
+/* Ioana Alex Mititean */
+/* 10/15/22 */
+/* Unit 11 - Connect Four Project */
 
-#board td {
-  width: 50px;
-  height: 50px;
-  border: solid 1px #666;
+body {
+    background-image: linear-gradient(cornflowerblue, white);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Verdana, Tahoma, sans-serif;
 }
 
-/* pieces are div within game table cells: draw as colored circles */
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: darkblue;
+    text-shadow: 5px 5px 4px darkred;
+    font-size: 4em;
+    margin: 0px;
+}
 
+h2 {
+    font-size: 1.2em;
+}
+
+/* Style the horizontal rule */
+hr {
+    background-color: dimgrey;
+    height: 1px;
+    border: none
+}
+
+/* The pieces are divs within the game table cells, drawn as colored circles. */
 .piece {
-  /* TODO: make into circles */
-  margin: 5px;
-  width: 80%;
-  height: 80%;
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
 }
 
-/* TODO: make pieces red/blue,  depending on player 1/2 piece */
+/* The player pieces are either red or blue, depending on player number. */
+.p1 {
+    background-image: radial-gradient(circle, lightblue, blue);
+}
 
-/* column-top is table row of clickable areas for each column */
+.p2 {
+    background-image: radial-gradient(circle, pink, red);
+}
 
+/* The large areas to the left and right of the game board. */
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25vw;
+    text-align: center;
+    padding: 5px;
+}
+
+.player-blue {
+    color: blue;
+}
+
+.player-red {
+    color: red;
+}
+
+.game-over-blue {
+    background-color: lightblue;
+    color: blue;
+    border: 2px solid blue;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.game-over-red {
+    background-color: pink;
+    color: red;
+    border: 2px solid red;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.game-over-tie {
+    background-color: rgb(192, 119, 255);
+    color: rgb(69, 22, 114);
+    border: 2px solid rgb(69, 22, 114);
+    border-radius: 30px;
+    padding: 10px;
+}
+
+#rules {
+    margin: 15px;
+}
+
+/* The section that contains (wraps around) the game board and the areas next to it. */
+#game {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 15px;
+}
+
+/* Individual game board cells. */
+#board td {
+    background-color: beige;
+    width: 55px;
+    height: 55px;
+    border: solid 1px #666;
+}
+
+/* The column-top designates the table row of clickable areas at the top of each column. */
 #column-top td {
-  border: dashed 1px lightgray;
+    background-color: rgb(195, 195, 181);
+    border: dashed 1px dimgray;
 }
 
-#column-top td:hover {
-  background-color: gold;
+/* Change the color of the column top that is hovered over to reflect it is the blue player's turn. */
+#column-top td.player-blue:hover {
+    background-image: linear-gradient(blue, lightblue);
+}
+
+/* Change the color of the column top that is hovered over to reflect it is the red player's turn. */
+#column-top td.player-red:hover {
+    background-image: linear-gradient(red, pink);
+}
+
+#instructions {
+    font-size: 1.2em;
+}
+
+#player-indicator {
+    font-size: 1.7em;
+    font-weight: bold;
+    margin: 10px 0px;
 }

@@ -1,15 +1,46 @@
+<!-- Ioana Alex Mititean -->
+<!-- 10/15/22 -->
+<!-- Unit 11 - Connect Four Project -->
+
 <!doctype html>
 <head>
-  <title>Connect 4</title>
-  <link href="connect4.css" rel="stylesheet">
+    <title>Connect Four</title>
+    <link href="connect4.css" rel="stylesheet">
 </head>
+
 <body>
+    <h1>Connect Four</h1>
 
-<div id="game">
-  <table id="board"></table>
-</div>
+    <div id="rules">
+        <h2>Rules</h2>
+        <ul>
+            <li>2 players (blue and red) alternate turns.</li>
+            <li>On each turn, a player drops a game piece corresponding to their player color in the top of a selected column.</li>
+            <li>This piece will fall down to the furthest-down unoccupied cell.</li>
+        </ul>
 
-<script src="connect4.js"></script>
+        <h2>Game End</h2>
+        <ul>
+            <li>The game is won when a player makes four in a row (horizontally, vertically, or diagonally).</li>
+            <li>The game ends in a tie if the entire board is filled up without a winner.</li>
+        </ul>
+    </div>
+    <hr>
 
+    <div id="game">
+        <div class="side-bar">
+            <div id="instructions">
+                <h2>Instructions</h2>
+                <p>To place a piece in a column, click the topmost cell of that column.</p>
+                <p>Refresh the page to reset the board.</p>
+            </div>
+        </div>
+        <table id="board"></table>
+        <div class="side-bar">
+            <div id="player-indicator" class="player-blue">Current player: 1 (BLUE)</div>
+        </div>
+    </div>
+
+    <script src="connect4.js"></script>
 </body>
 </html>

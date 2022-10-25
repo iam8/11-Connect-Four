@@ -1,0 +1,38 @@
+Parts of a plan - the game mechanics code
+
+1) HTML for the board itself
+	> Some sort of grid - probably using the TABLE element
+	> Style the table into a grid with CSS: use the display property 'grid'
+
+2) Representing a piece that was played in the HTML board
+	> In JS: the piece might be some object with a color and player number property
+	> In HTML: make some kind of container (maybe a div?) and style with CSS to make it circular
+
+3) JS structure for the in-memory game board
+	> An array of subarrays
+	> Initially hard-coded, but could be more flexible (let user enter a size)
+
+4) The overall flow of the game
+	> Start game
+	> Player 1: place a blue piece into the clicked column (the first unoccupied slot from the bottom)
+	> Player 2: same as above, but place a red piece
+	> After every piece placement, determine if there is a winner (4 in a row, column, or diagonal)
+	> AFTER checking for a winner, determine if the board has been filled
+	> If a winner is found, stop the game and declare the winner (red or blue)
+	> If the board is found to be filled (no winner was found), stop the game and declare a tie
+
+NOTE: The above plan I wrote (before I read the starter code for the project) ended up being different than
+what the starter code suggested. However, I think my way would still work - I can't tell for sure if it would
+be more or less efficient, or more or less readable, etc.
+
+Features to add for next time
+	> Add some sort of refresh option (button) to reset game board
+	> Add a legend, showing the player color and number correspondence (probably overkill though)
+	> Put a down arrow icon at the top row of the board (on hover - replace the gold color change)
+	> Animation for pieces dropping down in the columns
+
+
+
+	
+
+	
